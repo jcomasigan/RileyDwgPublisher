@@ -26,7 +26,7 @@ namespace RileyDwgPublisher
             //HAS TO BE CAPS SO WE CAN IGNORE CASE IN CHECKING
             string blockName = "SIGNATURES";
             string blockNameOld = "SIGNED";
-            string designedAttb = "CLIENT";
+            string designedAttb = "DES";
             string checkedAttb = "DWG";
             string directorAttb = "DIRECTOR";
             string directorAttbMispell = "DRIECTOR"; //there are two variations. One with typo

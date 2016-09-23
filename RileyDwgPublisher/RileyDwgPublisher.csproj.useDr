@@ -4,7 +4,8 @@
     <ReferencePath>C:\ObjectARX 2016\inc-win32;C:\ObjectARX 2016\inc-x64</ReferencePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartProgram>C:\Program Files\Autodesk\AutoCAD 2016\acad.exe</StartProgram>
+    <StartProgram>C:\Program Files\Autodesk\AutoCAD 2013\acad.exe</StartProgram>
     <StartAction>Program</StartAction>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
 </Project>
