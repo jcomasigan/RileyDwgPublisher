@@ -560,6 +560,7 @@ namespace RileyDwgPublisher
                 string fileProcessing = GlobalVariables.DwgDets[i].FilePath;
                 string layoutTitle = GlobalVariables.DwgDets[i].LayOutName;
                 string dwgNo = GlobalVariables.DwgDets[i].DwgNumber;
+                dwgNo = ReplaceBarr(dwgNo);
                 string revNo = GlobalVariables.DwgDets[i].DwgRev;
                 if (System.IO.File.Exists(tempPath + "\\sigdrawings.dsd"))
                 {
@@ -570,6 +571,18 @@ namespace RileyDwgPublisher
             }
         }
 
+        private static string ReplaceBarr(string jobNo)
+        {
+            if (jobNo.Contains("/"))
+            {
+                jobNo.Replace("/", "_");
+            }
+            if (jobNo.Contains(@"\"))
+            {
+                jobNo.Replace(@"\", "_");
+            }
+            return jobNo;
+        }
 
         public static void PublishLayouts(string file, string layout, string dwgNo, string revNo)
         {
@@ -577,11 +590,13 @@ namespace RileyDwgPublisher
             string tempPath = "C:\\temp";
             string fileDir = Path.GetDirectoryName(file);
             string fileTitle = dwgNo;
+            ReplaceBarr(dwgNo);
             string layoutname = layout;
             using (DsdEntryCollection dsdDwgFiles = new DsdEntryCollection())
             {
                 using (DsdEntry dsdDwgFile = new DsdEntry())
                 {
+                    
                     dsdDwgFile.DwgName = file;
                     dsdDwgFile.Layout = layout;
                     dsdDwgFile.Title = dwgNo + " (" + revNo + ")";
